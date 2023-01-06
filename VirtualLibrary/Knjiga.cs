@@ -13,6 +13,8 @@ namespace VirtualLibrary
         public string Avtor { get; set; }
         public string ISBN { get; set; }
         public string Zalozba { get; set; }
+
+        // Pri pridobivanju parse v string
         public int LetoIzdaje { get; set; }
         public int Strani { get; set; }
 
@@ -34,6 +36,16 @@ namespace VirtualLibrary
             LetoIzdaje = letoIzdaje;
             Strani = strani;
             Izposojena = false; // Knjiga je na zacetku na voljo
+        }
+
+        public Knjiga(string naslov, string avtor)
+        {
+            this.Naslov = naslov;
+            this.Avtor = avtor;
+            this.Strani = 0;
+            this.Izposojena = false;
+            this.LetoIzdaje = 0;
+            this.Zalozba = "";
         }
 
 
@@ -58,6 +70,34 @@ namespace VirtualLibrary
         public static List<Knjiga> VrniVseKnjige()
         {
             return SeznamVsehKnjig;
+        }
+
+        // Read only property
+        public string IzposojenaString
+        {
+            get
+            {
+                if (Izposojena)
+                {
+                    return "Da";
+                }
+                else
+                {
+                    return "Ne";
+                }
+            }
+        }
+
+        // Metoda za izpis podatkov o knjigi
+        public override string ToString()
+        {
+            return string.Format("Naslov: {0}, Avtor: {1}, ISBN: {2}, Založba: {3}, Leto izdaje: {4}, Število strani: {5}, Izposojena: {6}", Naslov, Avtor, ISBN, Zalozba, LetoIzdaje, Strani, IzposojenaString);
+        }
+
+        // Metoda za vrnjenje podatkov o knjigi na podlagi lokacije v seznamu
+        public static Knjiga VrniKnjigo(int index)
+        {
+            return SeznamVsehKnjig[index];
         }
     }
 }
