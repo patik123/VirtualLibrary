@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-// Dodajanje razreda Knjiga
 using VirtualLibrary;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Helpers;
+
 
 namespace VirtualLibrary
 {
@@ -23,6 +16,8 @@ namespace VirtualLibrary
 
         private void VirtualLibraryMain_Load(object sender, EventArgs e)
         {
+
+
             Knjiga knjiga1 = new Knjiga("C# 5.0", "Ivan Petrov", "1234567890123", "Mladinska knjiga", 2015, 500);
             knjiga1.DodajKnjigo();
 
@@ -46,8 +41,6 @@ namespace VirtualLibrary
 
             // Dodajanje vrstic
             this.addRowsInListView(seznamVsehKnjig);
-
-
         }
 
         private void AddBook_Click(object sender, EventArgs e)
@@ -55,6 +48,7 @@ namespace VirtualLibrary
             // Clear the list view
             SeznamKnjig.Items.Clear();
             // Ustvari novo knjigo 
+
             Knjiga knjiga = new Knjiga(bookTitleInput.Text, bookAuthorInput.Text, bookISBNInput.Text, bookPublisherInput.Text, Convert.ToInt32(bookYearInput.Text), Convert.ToInt32(bookPagesInput.Text));
 
             // Dodaj knjigo v seznam vseh knjig
@@ -101,6 +95,10 @@ namespace VirtualLibrary
                 bookYearInput.Text = knjiga.LetoIzdaje.ToString();
                 bookPagesInput.Text = knjiga.Strani.ToString();
                 bookISBNInput.Text = knjiga.ISBN.ToString();
+
+                addButton.Enabled = false;
+
+                updateButton.Enabled = true;
             }
             else
             {
@@ -108,6 +106,22 @@ namespace VirtualLibrary
             }
         }
 
-        
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            // Update book data
+        }
+
+        private void createNewBookButton_Click(object sender, EventArgs e)
+        {
+            bookAuthorInput.Text = "";
+            bookISBNInput.Text = "";
+            bookPagesInput.Text = "";
+            bookPublisherInput.Text = "";
+            bookYearInput.Text = "";
+            bookTitleInput.Text = "";
+
+            addButton.Enabled = true;
+            updateButton.Enabled = false;
+        }
     }
 }

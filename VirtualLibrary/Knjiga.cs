@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VirtualLibrary
 {
@@ -56,14 +57,14 @@ namespace VirtualLibrary
         }
 
         // Metoda za posodobitev podatkov o knjigi
-        public void PosodobiKnjigo(string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani)
+        virtual public void  PosodobiKnjigo(int index, string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani)
         {
-            Naslov = naslov;
-            Avtor = avtor;
-            ISBN = isbn;
-            Zalozba = zalozba;
-            LetoIzdaje = letoIzdaje;
-            Strani = strani;
+            SeznamVsehKnjig[index].Naslov = naslov;
+            SeznamVsehKnjig[index].Avtor = avtor;
+            SeznamVsehKnjig[index].ISBN = isbn;
+            SeznamVsehKnjig[index].Zalozba = zalozba;
+            SeznamVsehKnjig[index].LetoIzdaje = letoIzdaje;
+            SeznamVsehKnjig[index].Strani = strani;
         }
 
         // Vrni list vseh knjig
@@ -98,6 +99,18 @@ namespace VirtualLibrary
         public static Knjiga VrniKnjigo(int index)
         {
             return SeznamVsehKnjig[index];
+        }
+
+        // Metoda za izbris knjige iz seznama
+        public static void IzbrisiKnjigo(int index)
+        {
+            SeznamVsehKnjig.RemoveAt(index);
+        }
+
+
+        ~Knjiga()
+        {
+            
         }
     }
 }
