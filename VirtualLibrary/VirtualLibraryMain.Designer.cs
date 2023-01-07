@@ -31,6 +31,7 @@
             this.SeznamKnjig = new System.Windows.Forms.ListView();
             this.bookTitleInput = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.updateButton = new System.Windows.Forms.Button();
             this.bookPagesLabel = new System.Windows.Forms.Label();
             this.bookPagesInput = new System.Windows.Forms.TextBox();
             this.bookYearLabel = new System.Windows.Forms.Label();
@@ -43,8 +44,6 @@
             this.bookAuthorInput = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.bookTitleLabel = new System.Windows.Forms.Label();
-            this.updateButton = new System.Windows.Forms.Button();
-            this.createNewBookButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,9 +52,9 @@
             this.SeznamKnjig.FullRowSelect = true;
             this.SeznamKnjig.GridLines = true;
             this.SeznamKnjig.HideSelection = false;
-            this.SeznamKnjig.Location = new System.Drawing.Point(12, 33);
+            this.SeznamKnjig.Location = new System.Drawing.Point(12, 12);
             this.SeznamKnjig.Name = "SeznamKnjig";
-            this.SeznamKnjig.Size = new System.Drawing.Size(776, 164);
+            this.SeznamKnjig.Size = new System.Drawing.Size(776, 185);
             this.SeznamKnjig.TabIndex = 0;
             this.SeznamKnjig.UseCompatibleStateImageBehavior = false;
             this.SeznamKnjig.SelectedIndexChanged += new System.EventHandler(this.SeznamKnjig_SelectedIndexChanged);
@@ -85,8 +84,19 @@
             this.panel1.Controls.Add(this.bookTitleInput);
             this.panel1.Location = new System.Drawing.Point(12, 203);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(408, 235);
+            this.panel1.Size = new System.Drawing.Size(411, 235);
             this.panel1.TabIndex = 2;
+            // 
+            // updateButton
+            // 
+            this.updateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(132)))), ((int)(((byte)(199)))));
+            this.updateButton.Location = new System.Drawing.Point(88, 201);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(107, 31);
+            this.updateButton.TabIndex = 14;
+            this.updateButton.Text = "Posodobi";
+            this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // bookPagesLabel
             // 
@@ -170,12 +180,13 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(6, 209);
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
+            this.addButton.Location = new System.Drawing.Point(6, 201);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(80, 31);
             this.addButton.TabIndex = 3;
             this.addButton.Text = "Dodaj knjigo";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.AddBook_Click);
             // 
             // bookTitleLabel
@@ -187,32 +198,11 @@
             this.bookTitleLabel.TabIndex = 2;
             this.bookTitleLabel.Text = "Naslov";
             // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(88, 208);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(92, 23);
-            this.updateButton.TabIndex = 14;
-            this.updateButton.Text = "Posodobi";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            // 
-            // createNewBookButton
-            // 
-            this.createNewBookButton.Location = new System.Drawing.Point(12, 4);
-            this.createNewBookButton.Name = "createNewBookButton";
-            this.createNewBookButton.Size = new System.Drawing.Size(195, 23);
-            this.createNewBookButton.TabIndex = 3;
-            this.createNewBookButton.Text = "Ustvarjanje nove knjige";
-            this.createNewBookButton.UseVisualStyleBackColor = true;
-            this.createNewBookButton.Click += new System.EventHandler(this.createNewBookButton_Click);
-            // 
             // VirtualLibraryMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.createNewBookButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SeznamKnjig);
             this.Name = "VirtualLibraryMain";
@@ -242,7 +232,6 @@
         private System.Windows.Forms.Label bookYearLabel;
         private System.Windows.Forms.TextBox bookYearInput;
         private System.Windows.Forms.Button updateButton;
-        private System.Windows.Forms.Button createNewBookButton;
     }
 }
 
