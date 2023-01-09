@@ -133,7 +133,7 @@ namespace VirtualLibrary
             {
                 MessageBox.Show("Napaka pri posodobitvi knjige");
             }
-            
+
             this.ClearInputs();
 
             addButton.Enabled = true;

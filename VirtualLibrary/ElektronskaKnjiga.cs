@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VirtualLibrary
+﻿namespace VirtualLibrary
 {
     internal class ElektronskaKnjiga : Knjiga
     {
         public string URL { get; set; }
+        const string Tip = "ElektronskaKnjiga";
 
         public ElektronskaKnjiga(string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani, string url) : base(naslov, avtor, isbn, zalozba, letoIzdaje, strani)
         {

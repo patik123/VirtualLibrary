@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 
 namespace VirtualLibrary
 {
@@ -22,11 +17,12 @@ namespace VirtualLibrary
         // Podatki o izposojenosti
         public bool Izposojena { get; set; }
 
+        public const string Tip = "Knjiga";
+
 
         // Seznam vseh knjig
-
         public static List<Knjiga> SeznamVsehKnjig = new List<Knjiga>();
-        
+
         // Konstruktor 
         public Knjiga(string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani)
         {
@@ -57,7 +53,7 @@ namespace VirtualLibrary
         }
 
         // Metoda za posodobitev podatkov o knjigi
-        virtual public void  PosodobiKnjigo(int index, string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani)
+        virtual public void PosodobiKnjigo(int index, string naslov, string avtor, string isbn, string zalozba, int letoIzdaje, int strani)
         {
             SeznamVsehKnjig[index].Naslov = naslov;
             SeznamVsehKnjig[index].Avtor = avtor;
@@ -106,11 +102,9 @@ namespace VirtualLibrary
         {
             SeznamVsehKnjig.RemoveAt(index);
         }
-
-
         ~Knjiga()
         {
-            
+
         }
     }
 }
